@@ -11,15 +11,15 @@ module.exports = function (app) {
   
     if (initNum == null && initUnit == null) {
       res.type("txt").send("invalid number and unit");
-      next();
+      return;
     }
     if (initUnit == null) {
       res.type("txt").send("invalid unit");
-      next();
+      return;
     }
     if (initNum == null || initNum == undefined) {
       res.type("txt").send("invalid number");
-      next();
+      return;
     }
     
     let returnUnit = convertHandler.getReturnUnit(initUnit);
