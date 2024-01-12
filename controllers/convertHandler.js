@@ -3,7 +3,7 @@ function ConvertHandler() {
   this.getNum = function (input) {
     const indexResult = input.search(/[a-zA-Z]/);
 
-    if (indexResult !== -1) {
+    if (indexResult !== -1 && indexResult !== 0) {
       let stringNum = input.slice(0, indexResult);
       let result;
       if (stringNum.includes("/")) {
@@ -11,7 +11,6 @@ function ConvertHandler() {
           result = null;
         } else {
           let frac = eval(stringNum);
-          console.log(frac)
           result = parseFloat(frac);
         }
       } else {
@@ -112,7 +111,7 @@ function ConvertHandler() {
         break;
     }
 
-    return result.toFixed(5);
+    return parseFloat(result.toFixed(5));
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
